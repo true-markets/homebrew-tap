@@ -29,6 +29,9 @@ class Tm < Formula
   end
 
   def install
+    on_macos do
+      system "xattr", "-cr", "tm"
+    end
     bin.install "tm"
   end
 
