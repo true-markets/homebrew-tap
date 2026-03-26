@@ -3,7 +3,7 @@ cask "tm" do
   name "tm"
   desc "Trade crypto from your terminal"
   homepage "https://github.com/true-markets/cli"
-  version "0.0.8"
+  version "0.0.9"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "tm" do
   on_macos do
     on_intel do
       url "https://github.com/true-markets/cli/releases/download/v#{version}/tm_#{version}_darwin_amd64.tar.gz"
-      sha256 "7247f04df9016b0c6ef044c24cfc2dfd2a942ada34730cd62426f41fbb14bbc7"
+      sha256 "3d81f7b35ff62f99f749b2d39a60279d4727baa951273e0353f90c2ed4fd62c5"
     end
     on_arm do
       url "https://github.com/true-markets/cli/releases/download/v#{version}/tm_#{version}_darwin_arm64.tar.gz"
-      sha256 "8bdbd9c16c246e8bd8cb20f480088110387a94007450fb06cb44787ee48642b2"
+      sha256 "6fe79ecad57ce912ec7a87d2f4003400e6b1b49a999592b39d4e2f4b78affa57"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/true-markets/cli/releases/download/v#{version}/tm_#{version}_linux_amd64.tar.gz"
-      sha256 "0d8fc4a2e4adea5c5ac38a5c76f60ce859d2e4c473afca89c66c232dbbe1fc03"
+      sha256 "df44703e64aee51aa85f6312af4bb778c6e0d434ac313daaa9847d9136c95bc8"
     end
     on_arm do
       url "https://github.com/true-markets/cli/releases/download/v#{version}/tm_#{version}_linux_arm64.tar.gz"
-      sha256 "a987cadb97faf62dceba2bf83e1dcb7b00425774568ad72617ef5261b0e070f1"
+      sha256 "e3a55f8dc26025eeb2c2c589b54ec7c2488f56ef94b50c81e23ca91033a54fe6"
     end
   end
 
