@@ -19,6 +19,7 @@ jobs:
       - name: Validate Ruby syntax
         run: |
           tap_path="$(brew --repository)/Library/Taps/true-markets/homebrew-tap"
+          shopt -s nullglob
           for f in "$tap_path"/Casks/*.rb "$tap_path"/Formula/*.rb; do
-            [ -f "$f" ] && ruby -c "$f"
+            ruby -c "$f"
           done
