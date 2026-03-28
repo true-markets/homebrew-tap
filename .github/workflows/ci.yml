@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Lint Homebrew Casks
+        run: brew style --cask true-markets/tap/tm
+
+      - name: Validate Ruby syntax
+        run: |
+          tap_path="$(brew --repository)/Library/Taps/true-markets/homebrew-tap"
+          shopt -s nullglob
+          for f in "$tap_path"/Casks/*.rb "$tap_path"/Formula/*.rb; do
+            ruby -c "$f"
+          done
