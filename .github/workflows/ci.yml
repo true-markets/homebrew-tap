@@ -13,21 +13,12 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - uses: actions/checkout@v4
-        with:
-          path: homebrew-tap
-
-      - name: Register as a tap
-        run: |
-          mkdir -p "$(brew --repository)/Library/Taps/true-markets"
-          ln -s "$GITHUB_WORKSPACE/homebrew-tap" "$(brew --repository)/Library/Taps/true-markets/homebrew-tap"
-
       - name: Lint Homebrew Casks
         run: brew style --cask true-markets/tap/tm
 
       - name: Validate Ruby syntax
-        working-directory: homebrew-tap
         run: |
-          for f in Casks/*.rb Formula/*.rb; do
+          tap_path="$(brew --repository)/Library/Taps/true-markets/homebrew-tap"
+          for f in "$tap_path"/Casks/*.rb "$tap_path"/Formula/*.rb; do
             [ -f "$f" ] && ruby -c "$f"
           done
